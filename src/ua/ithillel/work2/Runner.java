@@ -5,7 +5,7 @@ public class Runner {
     public void run() {
         int[] array = createArray();
         MySumCount_1 mySumCount_1 = new MySumCount_1(array);
-        mySumCount_1.run();
+        mySumCount_1.start();
         MySumCount_2 mySumCount_2 = new MySumCount_2(array);
         mySumCount_2.run();
     }

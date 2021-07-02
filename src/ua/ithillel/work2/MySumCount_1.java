@@ -4,22 +4,19 @@ public class MySumCount_1 extends Thread {
     private int startIndex;
     private int stopIndex;
     private int[] myArray;
-    private final long resultSum;
+    private long resultSum;
 
     public MySumCount_1(int[] array) {
         this.myArray = array;
         this.startIndex = 1;
         this.stopIndex = array.length - 1;
-        this.resultSum = countResult();
     }
 
     public MySumCount_1(int startIndex, int stopIndex, int[] array) {
         this.myArray = array;
         this.startIndex = startIndex;
         this.stopIndex = stopIndex;
-        this.resultSum = countResult();
     }
-
 
     public int getStartIndex() {
         return startIndex;
@@ -46,22 +43,19 @@ public class MySumCount_1 extends Thread {
     }
 
     public long getResultSum() {
-        return this.countResult();
-    }
-
-    public long countResult() {
-        long result = 0L;
-        for (int i = this.startIndex; i <= this.stopIndex; i++) {
-            result += myArray[i];
-        }
-        return result;
+        return this.resultSum;
     }
 
     @Override
     public void run() {
-        System.out.println("Thread runner started");
-        System.out.println("Thread runner result: " + this.resultSum);
-        System.out.println("Thread runner stopped");
+        long result = 0L;
+        System.out.println("Runner started");
+        for (int i = this.startIndex; i <= this.stopIndex; i++) {
+            result += myArray[i];
+            System.out.println("runner #1: " + result);
+        }
+        System.out.println("Runner #1 stopped with the final result: " + result);
+        this.resultSum = result;
     }
 
 
